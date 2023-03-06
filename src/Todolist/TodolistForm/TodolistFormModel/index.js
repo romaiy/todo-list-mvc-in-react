@@ -1,16 +1,16 @@
 const TodolistFormModal = {
     isLoading: true,
-    isValid: true,
+    isValid: false,
     fields: {
         title: {
-            value: '',
+            value: "",
         },
         description: {
-            value: '',
+            value: "",
         },
         type: {
-            value: '',
-            options: '',
+            value: "",
+            options: "",
         },
     },
 };

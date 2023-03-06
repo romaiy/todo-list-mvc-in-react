@@ -9,3 +9,10 @@ const changeField = (change) => ({
     type: actionTypes.CHANGE_FIELD,
     payload: change,
 });
+
+const TodolistFormAction = {
+    setTodolistOptions,
+    changeField,
+};
+
+export default TodolistFormAction;

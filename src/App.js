@@ -1,14 +1,17 @@
 import React from 'react';
-import './App.css';
+import { Container } from '@material-ui/core';
 import Todolist from './Todolist';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 function App() {
+  const defaultTheme = createTheme();
+
   return (
-    <div className="App">
-      <Todolist>
-        
-      </Todolist>
-    </div>
+    <ThemeProvider theme={defaultTheme}>
+      <Container maxWidth="sm" justify="center">
+        <Todolist />
+      </Container>
+    </ThemeProvider>
   );
 }
 
