@@ -4,6 +4,7 @@ const Context = createContext([]);
 
 const addId = (tasks, task) => ({
     id: tasks.length + 1,
+    isCompleted: false,
     ...task,
 });
 

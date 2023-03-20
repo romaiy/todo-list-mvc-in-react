@@ -26,7 +26,6 @@ const TodolistFormView = (props) => {
 
     const handleAdd = (e) => {
         e.preventDefault();
-
         onAdd();
     };
 

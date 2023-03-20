@@ -1,0 +1,35 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #101010;
+    cursor: default;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    background: #F4F4F4; 
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+.none {
+    display: none !important;
+}
+
+.visually-hidden {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+    display: block;
+    margin-left: -10000px;
+    background: transparent;
+    font-size: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+

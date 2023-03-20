@@ -14,6 +14,14 @@ const getType = () =>
                     code: "hobby",
                     name: "Hobby",
                 },
+                {
+                    code: "home",
+                    name: "Home",
+                },
+                {
+                    code: "work",
+                    name: "Work",
+                },
             ]);
         }, 500);
     });

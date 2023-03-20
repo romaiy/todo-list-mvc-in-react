@@ -18,12 +18,13 @@ const TodolistFormAdapter = () => {
     }, [getTypeFromApi]);
 
     const handleAdd = (fields) => {
-        const { title, description, type } = fields;
+        const { title, description, type, isCompleted } = fields;
 
         addTasks({
             title,
             description,
             type: getSelectedType(types, type),
+            isCompleted,
         });
     };
 
