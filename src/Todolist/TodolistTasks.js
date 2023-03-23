@@ -1,9 +1,18 @@
 import React from "react";
-import TaskType from "../components/TaskType";
+import Task from "../components/Task";
 import { useTodolistTasksContext } from "./TodolistTasksProvider";
 
 const TodolistTasks = () => {
     const [tasks] = useTodolistTasksContext();
+    // удалить эту фигню  и посмотреть как менять значение контекста, а id и состояние передавать в контрол
+    const setCompleted = (id, isCompleted) => {
+        const newTasks = tasks.map((task) => (
+            (task.id === (id))
+            ? { ...task, isCompleted: !isCompleted }
+            : task
+        ));
+        console.table(tasks);
+    }
 
     return (
         <div className="task">
@@ -11,14 +20,7 @@ const TodolistTasks = () => {
                 <h2 className="task__heading">Tasks</h2>
                 <ul className="task__list">
                 {tasks.map((item) => (
-                    <li className="task__block" key={item.id}>
-                        <div className="task__column">
-                            <h3 className="task__title">{item.title} - {item.isCompleted}</h3>
-                            <p className="task__description">{item.description}</p>
-                            <TaskType  name={item.type.name} />
-                        </div>
-                        <div className="task__column"></div>
-                    </li>
+                    <Task key={item.id} item={item} setCompleted={setCompleted}/>
                 ))}
                 </ul>
             </div>

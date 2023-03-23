@@ -1,6 +1,6 @@
 .task {
     &__block {
-        width: 897px;
+        width: 552px;
         height: 250px;
         margin-bottom: 30px;
         background: #FFFFFF;
@@ -19,9 +19,9 @@
         font-size: 20px;
         line-height: 30px;
         color: #2B282D;
-        margin-bottom: 15px;
     }
     &__description {
+        margin-top: 15px;
         font-size: 15px;
         line-height: 22px;
         color: #2B282D;
@@ -34,5 +34,15 @@
         font-size: 15px;
         line-height: 22px;
         color: #FFFFFF;
+        display: inline-block;
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 492px;
+    }
+    &__heading {
+        margin-bottom: 20px; 
     }
 }

@@ -63,7 +63,7 @@ const TodolistFormView = (props) => {
 
     return (
         <div>
-            <Typography variant="h6" guetterBottom>
+            <Typography variant="h6" style={{marginBottom: '20px'}}>
                 Add a new task
             </Typography>
 
