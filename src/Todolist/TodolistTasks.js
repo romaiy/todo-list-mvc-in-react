@@ -3,15 +3,12 @@ import Task from "../components/Task";
 import { useTodolistTasksContext } from "./TodolistTasksProvider";
 
 const TodolistTasks = () => {
-    const [tasks] = useTodolistTasksContext();
-    // удалить эту фигню  и посмотреть как менять значение контекста, а id и состояние передавать в контрол
-    const setCompleted = (id, isCompleted) => {
-        const newTasks = tasks.map((task) => (
-            (task.id === (id))
-            ? { ...task, isCompleted: !isCompleted }
-            : task
-        ));
-        console.table(tasks);
+    const [tasks, add, set] = useTodolistTasksContext();
+    
+    const setCompleted = (id) => {
+        console.log(add);
+        console.clear();
+        set(id);
     }
 
     return (

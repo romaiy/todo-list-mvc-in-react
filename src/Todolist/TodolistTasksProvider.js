@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 
-const Context = createContext([]);
+export const Context = createContext();
 
 const addId = (tasks, task) => ({
     id: tasks.length + 1,
@@ -31,8 +31,17 @@ const TodolistTasksProvider = ({ children }) => {
         setTasks([...tasks, addId(tasks, newTasks)]);
     };
 
+    const setCompleted = (id) => {
+        setTasks(tasks.map((task) => {
+            if(task.id === id) {
+                return {...task, isCompleted: !task.isCompleted}
+            }
+            return task;
+        }));
+    };
+
     return (
-        <Context.Provider value={[tasks, addTasks]}>
+        <Context.Provider value={[tasks, addTasks, setCompleted]}>
             {children}
         </Context.Provider>
     );

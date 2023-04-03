@@ -8,7 +8,7 @@ const Task = ({ item, setCompleted }) => {
         <li className="task__block">
             <div className="task__column">
                 <div className="task__row">
-                    <h3 className="task__title">{item.title}</h3>
+                    <h3 className="task__title" style={(item.isCompleted) ? {textDecorationLine: 'line-through'} : {}}>{item.title}</h3>
                     <div>
                     <input 
                         className="custom-checkbox"
