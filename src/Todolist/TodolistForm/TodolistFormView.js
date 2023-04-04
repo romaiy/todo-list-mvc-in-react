@@ -1,16 +1,8 @@
-import { makeStyles } from "@material-ui/styles";
 import React, { useState } from "react";
-import MenuItem from "@material-ui/core/MenuItem";
-import { FormControl, Button, Typography, TextField, Select, InputLabel, CircularProgress } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-    formField: {
-        marginBottom: theme.spacing(3),
-    },
-}));
+import { CircularProgress } from "@material-ui/core";
+import Header from "../../components/Heder";
 
 const TodolistFormView = (props) => {
-    const classes = useStyles();
 
     const {
         model: {
@@ -63,65 +55,56 @@ const TodolistFormView = (props) => {
 
     return (
         <div>
-            <Typography variant="h6" style={{marginBottom: '20px'}}>
-                Add a new task
-            </Typography>
-
+            <Header/>
             <form onSubmit={handleAdd} noValidate autoComplete="off">
-                <TextField
+                <input
                     id="title"
-                    className={classes.formField}
+                    placeholder="Title"
+                    className="input"
                     label="Title"
-                    variant="filled"
-                    fullWidth
                     required
                     onChange={(e) => handleTitleChange(e)}
                 />
 
-                <TextField
+                <input
                     id="description"
-                    className={classes.formField}
+                    placeholder="Description"
+                    className="input"
                     label="Description"
                     variant="filled"
-                    fullWidth
-                    required
                     onChange={(e) => handleDescriptionChange(e)}
                 />
 
-                <FormControl
+                <div
                     variant="filled"
-                    className={classes.formField}
-                    fullWidth
                     required
                 >
                     {isLoading ? (
-                        <CircularProgress />
+                        <CircularProgress/>
                     ) : (
                         <>
-                        <InputLabel id="type">Type</InputLabel>
-                        <Select
+                        <select
                             id="type"
                             value={selectedType}
                             onChange={(e) => handleTypeChange(e)}
                         >
+                            <option/>
                             {type.options.map(({ label, value }) => (
-                                <MenuItem key={value} value={value}>
+                                <option key={value} value={value}>
                                     {label}
-                                </MenuItem>
+                                </option>
                             ))}
-                        </Select>
+                        </select>
                         </>
                     )}
-                </FormControl>
+                </div>
 
-                <Button
+                <button
                     type="submit"
-                    variant="contained"
-                    color="primary"
                     disabled={!isValid}
                 >
                     Add
-                </Button>
+                </button>
             </form>
         </div>
     );

@@ -102,12 +102,13 @@ svg path {
 
 body {
   font-family: "Poppins", sans-serif;
-  color: #101010;
+  font-style: normal;
+  color: #F4F6FA;
   cursor: default;
   font-weight: 400;
   font-size: 16px;
-  line-height: 20px;
-  background: #F4F4F4;
+  line-height: 24px;
+  background: #23262C;
 }
 
 * {
@@ -135,25 +136,18 @@ body {
 }
 
 .task__block {
-  width: 552px;
-  height: 250px;
-  margin-bottom: 30px;
-  background: #FFFFFF;
-  box-shadow: 0px 4px 15px rgba(50, 20, 61, 0.05);
-  border-radius: 10px;
-  padding: 30px;
+  margin-bottom: 20px;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
 }
 .task__block:last-child {
   margin-right: 0;
 }
 .task__title {
+  margin-left: 12px;
   font-weight: 700;
   font-size: 20px;
   line-height: 30px;
-  color: #2B282D;
 }
 .task__description {
   margin-top: 15px;
@@ -173,19 +167,51 @@ body {
 }
 .task__row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 492px;
 }
 .task__heading {
   margin-bottom: 20px;
 }
 
+.h1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 6px;
+}
+
+.h5 {
+  font-size: 12px;
+  line-height: 18px;
+  opacity: 0.5;
+  margin-bottom: 20px;
+}
+
+.input {
+  padding: 16px 30px;
+  background: #2E3239;
+  border-radius: 10px;
+  width: 1120px;
+  height: 56px;
+  margin-bottom: 20px;
+}
+.input:last-child {
+  margin-bottom: 0;
+}
+
+.line {
+  width: 1120px;
+  height: 0px;
+  opacity: 0.1;
+  border: 1px solid #F4F6FA;
+  margin-bottom: 20px;
+}
+
 .container {
-  max-width: 1080px;
+  max-width: 1120px;
   margin: 0 auto;
 }
-@media (max-width: 1092px) {
+@media (max-width: 1132px) {
   .container {
     max-width: 970px;
   }
@@ -231,7 +257,6 @@ body {
   flex-grow: 0;
   border: 1px solid #adb5bd;
   border-radius: 0.25em;
-  margin-right: 0.5em;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 50% 50%;

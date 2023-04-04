@@ -1,24 +1,17 @@
 .task {
     &__block {
-        width: 552px;
-        height: 250px;
-        margin-bottom: 30px;
-        background: #FFFFFF;
-        box-shadow: 0px 4px 15px rgba(50, 20, 61, 0.05);
-        border-radius: 10px;
-        padding: 30px;
+        margin-bottom: 20px;
         &:last-child {
             margin-right: 0;
         }
         display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
+        align-items: center;
     }
     &__title {
+        margin-left: 12px;
         font-weight: 700;
         font-size: 20px;
         line-height: 30px;
-        color: #2B282D;
     }
     &__description {
         margin-top: 15px;
@@ -38,11 +31,43 @@
     }
     &__row {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        width: 492px;
     }
     &__heading {
         margin-bottom: 20px; 
     }
+}
+
+.h1 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 6px;
+}
+
+.h5 {
+    font-size: 12px;
+    line-height: 18px;
+    opacity: 0.5;
+    margin-bottom: 20px;
+}
+
+.input {
+    padding: 16px 30px;
+    background: #2E3239;
+    border-radius: 10px;
+    width: 1120px;
+    height: 56px;
+    margin-bottom: 20px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.line {
+    width: 1120px;
+    height: 0px;
+    opacity: 0.1;
+    border: 1px solid #F4F6FA;
+    margin-bottom: 20px;
 }

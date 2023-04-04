@@ -14,7 +14,6 @@ const TodolistTasks = () => {
     return (
         <div className="task">
             <div className="task__content container">
-                <h2 className="task__heading">Tasks</h2>
                 <ul className="task__list">
                 {tasks.map((item) => (
                     <Task key={item.id} item={item} setCompleted={setCompleted}/>
