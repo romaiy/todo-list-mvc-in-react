@@ -136,26 +136,40 @@ body {
 }
 
 .task__block {
+  position: relative;
   margin-bottom: 20px;
-  display: flex;
-  align-items: center;
 }
 .task__block:last-child {
   margin-right: 0;
 }
+.task__block:hover .task__modal {
+  opacity: 1;
+}
+.task__modal {
+  position: fixed;
+  opacity: 0;
+  transition: all 0.8s;
+  z-index: 1050;
+  width: 250px;
+  height: 100px;
+  background: #2E3239;
+  border-radius: 10px;
+  margin-top: -105px;
+  pointer-events: none;
+  padding: 10px;
+}
 .task__title {
   margin-left: 12px;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 30px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
 }
 .task__description {
-  margin-top: 15px;
-  font-size: 15px;
-  line-height: 22px;
-  color: #2B282D;
-  height: 69px;
-  margin-bottom: 30px;
+  margin-left: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }
 .task__type {
   padding: 10px 30px 10px 30px;
@@ -205,6 +219,64 @@ body {
   opacity: 0.1;
   border: 1px solid #F4F6FA;
   margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.completed {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+.completed__hiden {
+  padding: 12px 24px;
+  width: 235px;
+  height: 48px;
+  background: #2E3239;
+  border-radius: 9px;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  color: #8C8E93;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.completed__hiden img {
+  margin-right: 12px;
+}
+.completed__count {
+  font-size: 14px;
+  line-height: 21px;
+  color: #8C8E93;
+  display: flex;
+}
+
+.button {
+  padding: 12px 24px;
+  background: #2E3239;
+  border-radius: 9px;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  color: #8C8E93;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -279,4 +351,12 @@ body {
 
 .custom-checkbox:disabled + label::before {
   background-color: #e9ecef;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }

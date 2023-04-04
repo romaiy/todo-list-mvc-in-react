@@ -8,6 +8,8 @@ $md4: 479.98;
 @import "_main";
 
 @import "_task";
+@import "_completed";
+
 .container {
     max-width: $maxWidthContainer + px;
     margin: 0 auto;
@@ -75,4 +77,12 @@ $md4: 479.98;
 
 .custom-checkbox:disabled+label::before {
     background-color: #e9ecef;
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }

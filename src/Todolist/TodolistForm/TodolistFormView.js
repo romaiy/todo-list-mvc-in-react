@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CircularProgress } from "@material-ui/core";
-import Header from "../../components/Heder";
+import Header from "../../components/Header";
 
 const TodolistFormView = (props) => {
 
@@ -75,37 +75,50 @@ const TodolistFormView = (props) => {
                     onChange={(e) => handleDescriptionChange(e)}
                 />
 
-                <div
-                    variant="filled"
-                    required
-                >
-                    {isLoading ? (
-                        <CircularProgress/>
-                    ) : (
-                        <>
-                        <select
-                            id="type"
-                            value={selectedType}
-                            onChange={(e) => handleTypeChange(e)}
-                        >
-                            <option/>
-                            {type.options.map(({ label, value }) => (
-                                <option key={value} value={value}>
-                                    {label}
-                                </option>
-                            ))}
-                        </select>
-                        </>
-                    )}
-                </div>
+                <div className="row">
+                    <div
+                        variant="filled"
+                        required
+                    >
+                        {isLoading ? (
+                            <CircularProgress/>
+                        ) : (
+                            <div>
+                            <select
+                                style={
+                                    {background: "#23262C", 
+                                    border: '1px solid #adb5bd', 
+                                    borderRadius: '0.25em',
+                                    cursor: 'pointer',
+                                    padding: '4px',
+                                    opacity: '0.6'}
+                                }
+                                id="type"
+                                value={selectedType}
+                                onChange={(e) => handleTypeChange(e)}
+                            >
+                                <option/>
+                                {type.options.map(({ label, value }) => (
+                                    <option key={value} value={value}>
+                                        {label}
+                                    </option>
+                                ))}
+                            </select>
+                            </div>
+                        )}
+                    </div>
 
-                <button
-                    type="submit"
-                    disabled={!isValid}
-                >
-                    Add
-                </button>
+                    <button
+                        className="button"
+                        type="submit"
+                        disabled={!isValid}
+                        style={(!isValid) ? {background: "#575f6c"} : {}}
+                    >
+                        Add
+                    </button>
+                </div>
             </form>
+            <div className="line"></div>
         </div>
     );
 };

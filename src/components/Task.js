@@ -1,12 +1,22 @@
 import React from "react";
 
-const Task = ({ item, setCompleted }) => {
+const Task = ({ item, setCompleted, hide }) => {
   const id = `comleted${item.id}`;
     
   return(
-    <li className="task__block">
+    <li 
+      className="task__block" 
+      style={(hide && item.isCompleted) ? 
+        {display: "none"} : (item.isCompleted) ? 
+        {pointerEvents: 'none'} : {}}
+    >
+      <div className="task__modal">
+        <div className="task__description">
+          {item.description}
+        </div>
+      </div>
       <div className="task__row">
-        <div>
+        <div style={(item.isCompleted) ? {pointerEvents: 'auto'} : {}} className="checkbox">
           <input 
             className="custom-checkbox"
             type="checkbox" 
@@ -23,6 +33,7 @@ const Task = ({ item, setCompleted }) => {
           {item.title}
         </div>
       </div>
+      
     </li>
   )
 };
