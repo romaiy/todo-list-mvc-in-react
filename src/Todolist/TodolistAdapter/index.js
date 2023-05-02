@@ -6,7 +6,7 @@ import toTypeOption from "./toTypeOption";
 import { useTodolistTasksContext } from "../TodolistTasksProvider";
 
 const TodolistFormAdapter = () => {
-    const [, addTasks] = useTodolistTasksContext();
+    const [tasks, addTasks, ,save] = useTodolistTasksContext();
     const [types, setTypes] = useState([]);
 
     const getTypeFromApi = useCallback(async () => {
@@ -31,6 +31,8 @@ const TodolistFormAdapter = () => {
         <TodolistForm 
             todoOptions={types.map(toTypeOption)}
             onAdd={handleAdd}
+            handleSave={save}
+            tasks={tasks}
         />
     );
 };

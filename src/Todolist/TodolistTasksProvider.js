@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
+import { saveAs } from 'file-saver';
 
 export const Context = createContext();
 
@@ -12,8 +13,7 @@ const isAlreadyAdded = (tasks, newTasks) =>
     tasks.reduce((exist, t) => {
         if (
             t.title === newTasks.title &&
-            t.description === newTasks.description &&
-            t.type.code === newTasks.type.code
+            t.description === newTasks.description 
         ) {
             return true;
         }
@@ -40,8 +40,14 @@ const TodolistTasksProvider = ({ children }) => {
         }));
     };
 
+    const handleSave = (tasks) => {
+        const fileName = `Tasks.txt`;
+        const file = new Blob([JSON.stringify(tasks)], {type: 'text/plain;charset=utf-8'});
+        saveAs(file, fileName);
+    };
+
     return (
-        <Context.Provider value={[tasks, addTasks, setCompleted]}>
+        <Context.Provider value={[tasks, addTasks, setCompleted, handleSave]}>
             {children}
         </Context.Provider>
     );

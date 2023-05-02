@@ -12,6 +12,8 @@ const TodolistFormView = (props) => {
         },
         onFieldChange,
         onAdd,
+        handleSave,
+        tasks,
     } = props;
 
     const [selectedType, setSelectedType] = useState("");
@@ -49,8 +51,15 @@ const TodolistFormView = (props) => {
         } = e;
 
         setSelectedType(value);
+        try {
+            onFieldChange({ field: "type", value });
+        } catch (error) {
+            
+        }
+    };
 
-        onFieldChange({ field: "type", value });
+    const Save = () => {
+        handleSave(tasks);
     };
 
     return (
@@ -59,6 +68,7 @@ const TodolistFormView = (props) => {
             <form onSubmit={handleAdd} noValidate autoComplete="off">
                 <input
                     id="title"
+                    aria-label="title"
                     placeholder="Title"
                     className="input"
                     label="Title"
@@ -68,6 +78,7 @@ const TodolistFormView = (props) => {
 
                 <input
                     id="description"
+                    aria-label="description"
                     placeholder="Description"
                     className="input"
                     label="Description"
@@ -85,6 +96,7 @@ const TodolistFormView = (props) => {
                         ) : (
                             <div>
                             <select
+                                aria-label="type"
                                 style={
                                     {background: "#23262C", 
                                     border: '1px solid #adb5bd', 
@@ -97,7 +109,7 @@ const TodolistFormView = (props) => {
                                 value={selectedType}
                                 onChange={(e) => handleTypeChange(e)}
                             >
-                                <option/>
+                                <option>Type</option>
                                 {type.options.map(({ label, value }) => (
                                     <option key={value} value={value}>
                                         {label}
@@ -107,15 +119,26 @@ const TodolistFormView = (props) => {
                             </div>
                         )}
                     </div>
-
-                    <button
-                        className="button"
-                        type="submit"
-                        disabled={!isValid}
-                        style={(!isValid) ? {background: "#575f6c"} : {}}
-                    >
-                        Add
-                    </button>
+                    <div className="row">
+                        <button
+                            className="button"
+                            onClick={Save}
+                            type="button"
+                            disabled={!isValid}
+                            style={{marginRight: '15px'}}
+                        >
+                            Save
+                        </button>
+                        <button
+                            className="button"
+                            type="submit"
+                            disabled={!isValid}
+                            style={(!isValid) ? {background: "#575f6c"} : {}}
+                            aria-label="add"
+                        >
+                            Add
+                        </button>
+                    </div>
                 </div>
             </form>
             <div className="line"></div>

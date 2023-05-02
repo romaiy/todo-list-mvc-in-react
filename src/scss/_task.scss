@@ -22,7 +22,10 @@
         border-radius: 10px;
         margin-top: -105px;
         pointer-events: none;
+        
         padding: 10px;
+        display: flex;
+        justify-content: space-between;
     }
     &__title {
         margin-left: 12px;
@@ -36,14 +39,17 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 24px;
+        overflow: hidden;
     }
     &__type {
-        padding: 10px 30px 10px 30px;
+        margin-right: 12px;
         border-radius: 30px;
         font-size: 15px;
         line-height: 22px;
         color: #FFFFFF;
         display: inline-block;
+        display: flex;
+        align-self: flex-end;
     }
     &__row {
         display: flex;

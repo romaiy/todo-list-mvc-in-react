@@ -4,7 +4,7 @@ import action from "./TodolistFormModel/TodolistFormActions";
 import View from "./TodolistFormView";
 import reducer from "./TodolistFormModel/TodolistFormReducer";
 
-const TodolistForm = ({ todoOptions, onAdd }) => {
+const TodolistForm = ({ todoOptions, onAdd, handleSave, tasks }) => {
     const [model, dispatch] = useReducer(reducer, initialModel);
 
     useEffect(() => {
@@ -28,6 +28,8 @@ const TodolistForm = ({ todoOptions, onAdd }) => {
             model={model}
             onFieldChange={handleFieldChange}
             onAdd={handleAdd}
+            handleSave={handleSave}
+            tasks={tasks}
         />
     );
 };

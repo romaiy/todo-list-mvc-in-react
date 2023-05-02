@@ -14,6 +14,9 @@ const Task = ({ item, setCompleted, hide }) => {
         <div className="task__description">
           {item.description}
         </div>
+        <div className="task__type">
+          {item.type ? item.type.name : ''}
+        </div>
       </div>
       <div className="task__row">
         <div style={(item.isCompleted) ? {pointerEvents: 'auto'} : {}} className="checkbox">
