@@ -21,19 +21,28 @@ const isAlreadyAdded = (tasks, newTasks) =>
     }, false);
 
 const TodolistTasksProvider = ({ children }) => {
-    const [tasks, setTasks] = useState([]);
+    let array = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        let object = JSON.parse(localStorage.getItem(key));
+        array.push(object);
+    };
+
+    const [tasks, setTasks] = useState(array);
 
     const addTasks = (newTasks) => {
         if (isAlreadyAdded(tasks, newTasks)) {
             return;
         }
 
+        localStorage.setItem(`task${tasks.length + 1}`, JSON.stringify(addId(tasks, newTasks)));
         setTasks([...tasks, addId(tasks, newTasks)]);
     };
 
     const setCompleted = (id) => {
         setTasks(tasks.map((task) => {
             if(task.id === id) {
+                localStorage.setItem(`task${id}`, JSON.stringify({...task, isCompleted: !task.isCompleted}));
                 return {...task, isCompleted: !task.isCompleted}
             }
             return task;

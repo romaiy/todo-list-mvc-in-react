@@ -25,6 +25,7 @@ const Task = ({ item, setCompleted, hide }) => {
             type="checkbox" 
             id={id} 
             name="comleted"
+            defaultChecked={item.isCompleted}
             onChange={() => setCompleted(item.id, item.isCompleted)}
           />
           <label className="task__title" htmlFor={id}></label>
